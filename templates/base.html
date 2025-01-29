@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <link rel="stylesheet" href="/static/webapp.css">
+    <script src="/static/js/htmx.min.js"></script>
+    <head>
+        <title> {{ title }} </title>
+    </head>
+    <body>
+         
+<!-- Flashed Messages -->
+        <p>
+            <ul>
+                {% for message in get_flashed_messages() %}
+
+                    <li>{{ message }}</li>
+
+                {% endfor %}
+            </ul>
+        </p>
+
+<!-- Page Body -->
+        <div id="PageBody">
+            {% block the_body %}
+            {% endblock %}
+        </div>
+        
+    </body>
+</html>
