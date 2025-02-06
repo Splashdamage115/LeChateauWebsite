@@ -2,6 +2,9 @@
 REM Set window title
 title Flask Server
 
+REM Call the SQL Server batch file in the background
+start /min cmd /c call sqlServer.bat
+
 REM Set The directory
 cd /d "%~dp0"
 
