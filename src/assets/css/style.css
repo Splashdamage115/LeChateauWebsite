@@ -1,0 +1,283 @@
+body{
+    background-color: #242124;
+    color: white;
+    overflow-x: hidden;
+    padding-top: 100px; /* Adjust based on the banner's height */
+}
+
+
+/*-- Banner --*/
+
+
+#BannerLogo{
+    width: 80%;
+    max-width:200px;
+}
+
+.Banner{
+    width: 100%;
+    background-color: #000F08;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: fixed;
+    top: 0;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.Banner.shrink {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.Banner.shrink #BannerLogo {
+    display: none;
+}
+
+.BannerContainer a{
+    width: 100%;
+    align-items:flex-start;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Adjust styles for the tagline to ensure visibility */
+.BannerTagline {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    font-size: 24px; /* Slightly smaller font size */
+    font-weight: bold;
+    color: #FFD700; /* Use a gold color for better visibility */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Enhance text shadow */
+    background: rgba(0, 0, 0, 0.7); /* Darker background for contrast */
+    padding: 10px 20px; /* Adjust padding */
+    border-radius: 8px; /* Slightly rounder corners */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+/*-- Mobile size controller --*/
+@media (max-width:768px)
+{
+    .BannerContainer a{
+        width: 100%;
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+    }
+}
+
+/*-- Hamburger Menu --*/
+.HamburgerMenu {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Updated border color for hamburger menu on hover */
+.HamburgerMenu:hover {
+    border-color: white;
+}
+
+.HamburgerMenu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.HamburgerMenu .menuIcon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.HamburgerMenu .menuIcon span {
+    background-color: white;
+    height: 4px;
+    width: 30px;
+    margin: 5px 0;
+    transition: none;
+}
+
+.HamburgerMenu .menuIcon:hover span {
+    background-color: white;
+}
+
+.HamburgerMenu input[type="checkbox"] {
+    display: none;
+}
+
+.HamburgerMenu input[type="checkbox"]:checked ~ .menuContent {
+    transform: translateX(0);
+}
+
+/* Ensure hamburger menu disappears when left menu flies in */
+.HamburgerMenu input[type="checkbox"]:checked ~ .menuIcon {
+    display: none;
+}
+
+.HamburgerMenu .menuContent {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #000F08;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Updated highlighting for hamburger menu buttons */
+.HamburgerMenu .menuContent a {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.HamburgerMenu .menuContent a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.HamburgerMenu .menuContent a:hover::after {
+    width: 100%;
+}
+
+/* Reverted close button position to its previous state */
+.HamburgerMenu .menuContent .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.HamburgerMenu .menuContent .closeButton:hover {
+    color: #ff0000;
+}
+
+.HamburgerMenu::before {
+    content: none;
+}
+
+/* Add styles for the slideshow */
+.Slideshow {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-top: 100px; /* Push below the banner */
+}
+
+.Slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.Slideshow img.active {
+    opacity: 1;
+}
+
+.Slideshow .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+    .BannerTagline {
+        display: block;
+    }
+    .Slideshow {
+        width: 80%;
+        margin: 0 auto; /* Center the slideshow */
+        height: 500px; /* Increase height for PC */
+    }
+}
+
+@media (max-width: 1023px) {
+    .BannerTagline {
+        display: none;
+    }
+}
+
+/* Add styling for French/English buttons */
+.LanguageToggle {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.LanguageToggle .lang-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.LanguageToggle .lang-button img.flag-icon {
+    width: 20px;
+    height: 15px;
+}
+
+.LanguageToggle .lang-button:hover {
+    text-decoration: underline;
+}
+
+.LanguageToggle .lang-button.selected {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Add hover underline styling for translation buttons */
+.LanguageToggle .lang-button:hover {
+    text-decoration: underline;
+}

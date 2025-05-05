@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <meta name="author" content="David Strikaitis">
+        <title>Le Chateau</title>
+        <link href="src/assets/css/style.css" rel="stylesheet" text="text/css">
+
+        <link rel="icon" href="src/assets/imgs/icon.png">
+    </head>
+
+        <!-- Banner -->
+        <div class="Banner">
+            <div class="BannerContainer">
+                <a href="index.html"><img src="./src/assets/imgs/leChateauLogo.svg" alt="Le Chateau Logo" id="BannerLogo"></a>
+                <div class="BannerTagline" data-key="tagline">
+                    <p>Book Your Stay Today</p>
+                </div>
+            </div>
+        </div>
+        <div class="HamburgerMenu">
+            <input type="checkbox" id="menuToggle">
+            <label for="menuToggle" class="menuIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="menuContent">
+                <button class="closeButton">X</button>
+                <a href="contact.html" data-key="contact">Contact</a>
+                <a href="weddings.html" data-key="weddings">Weddings</a>
+                <a href="rooms.html" data-key="rooms">Rooms</a>
+                <a href="attractions.html" data-key="attractions">Attractions</a>
+                <div class="LanguageToggle">
+                    <button id="lang-en" class="lang-button">en</button>
+                    <button id="lang-fr" class="lang-button">fr</button>
+                </div>
+            </div>
+        </div>
+        <!-- Body -->
+         <!-- slideshow -->
+        <div class="Slideshow">
+            <img src="src/assets/imgs/Slide1.jpg" alt="Slide 1" class="active">
+            <img src="src/assets/imgs/Slide2.jpg" alt="Slide 2">
+            <img src="src/assets/imgs/Slide3.jpg" alt="Slide 3">
+            <div class="overlay" data-key="welcome">
+                <h2>Welcome to Le Chateau</h2>
+            </div>
+        </div>
+
+        <!-- Adjusted slideshow container to reflect new size -->
+
+        <div class="BodyContainer">
+            <div class="BodyContent">
+                <h1 data-key="welcome">Welcome to Le Chateau</h1>
+                <p data-key="description">Experience the elegance and charm of Le Chateau, where luxury meets comfort. Our exquisite rooms and stunning surroundings make for an unforgettable stay.</p>
+                <a href="rooms.html" class="button" data-key="explore">Explore Rooms</a>
+            </div>
+    </body>
+<!-- Include js-yaml library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="src/assets/js/script.js"></script>
+</html>
